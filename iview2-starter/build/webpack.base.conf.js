@@ -14,8 +14,8 @@ var _DEFAULT_TEMPLATE = "index.html"
 var _DEFAULT_CHUNK = ['index']
 //配置生成的入口html文件，注意依赖，basic为通用的依赖
 var _pages = [
-  {name:"index.html",chunks:['basic','index']},
-  {name:"mobile.html", chunks:['basic','mobile']}
+  {name:"index.html",chunks:['commons','index']},
+  {name:"mobile.html", chunks:['commons','mobile']}
 ]
 
 console.log()
@@ -30,6 +30,8 @@ for(var i=0;i<_pages.length;i++){
     inject: p.inject===false? false : true,
     chunks: p.chunks || _DEFAULT_CHUNK//isPro?(['manifest','vendor'].concat(p.chunks || _DEFAULT_CHUNK)):p.chunks || _DEFAULT_CHUNK
   }
+  console.log("add Entry "+p.name+", chunks="+htmlPlugin.chunks+"....")
+
   //如果是build环境
   if(isPro){
     htmlPlugin['minify']={
@@ -59,7 +61,7 @@ module.exports = {
     index: './src/index/main.js',
     mobile:'./src/mobile/main.js',
     //通用的组件，统一打包
-    basic: ['vue', 'vue-router', 'axios']
+    commons: ['vue', 'vue-router', 'axios']
   },
   output: {
     path: config.build.assetsRoot,

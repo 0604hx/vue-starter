@@ -80,7 +80,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     //   chunks: ['vendor']
     // }),
     //把公共依赖的打包成commons.js
-    new webpack.optimize.CommonsChunkPlugin({filename:'commons.js',name:'basic',chunks:['basic']}),
+    new webpack.optimize.CommonsChunkPlugin({filename:'static/commons.js',name:'commons'}),
 
     // copy custom static assets
     new CopyWebpackPlugin([
