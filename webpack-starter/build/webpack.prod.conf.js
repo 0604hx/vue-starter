@@ -71,7 +71,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // new webpack.optimize.CommonsChunkPlugin('basic', 'basic.[hash].js'),
 
     //把公共依赖的打包成commons.js
-    new webpack.optimize.CommonsChunkPlugin("basic",'commons.js')
+    new webpack.optimize.CommonsChunkPlugin("commons",'commons.js')
   ]
 })
 

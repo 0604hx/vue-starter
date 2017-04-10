@@ -13,8 +13,8 @@ var _DEFAULT_TEMPLATE = "./src/index.html"
 var _DEFAULT_CHUNK = ['index']
 //配置生成的入口html文件，注意依赖，basic为通用的依赖
 var _pages = [
-  {name:"index.html",chunks:['basic','index']},
-  {name:"mobile.html", template:"./src/mobile/index.html",chunks:['basic','mobile']}
+  {name:"index.html",chunks:['commons','index']},
+  {name:"mobile.html", template:"./src/mobile/index.html",chunks:['commons','mobile']}
 ]
 
 console.log()
@@ -53,7 +53,7 @@ module.exports = {
     index: './src/index/index.js',
     mobile: './src/mobile/index.js',
     //通用的组件，统一打包
-    basic: ['vue', 'vue-router', 'axios']
+    commons: ['vue', 'vue-router', 'axios']
   },
   output: {
     path: config.build.assetsRoot,
